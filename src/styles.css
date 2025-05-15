@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-datepicker-content-container {
+    background-color: white !important;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px lightgray;
+
+} 
+.mat-calendar-body-cell-content {
+    background-color: white;
+}
+.mat-calendar-body-selected {
+    background-color: yellowgreen !important; 
+    color: white !important; 
+  }
+.mat-calendar-body-cell-content:hover{
+    background-color: yellowgreen !important; 
+    color: white !important;
+}
+.mat-calendar-body-cell-content:active::content {
+    background-color: lightblue !important;
+}
+.mat-calendar-body-cell-content::after:disabled{
+    cursor: none !important;
+}
+
+
+  

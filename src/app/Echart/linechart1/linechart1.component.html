@@ -1,0 +1,89 @@
+<br>
+<div class="text-center title"><b>Echart</b></div>
+<hr>
+<div class="row p-3" style="width: 100%;">
+
+  <div class="col-md-6">
+    <div class="p-3 border border-dark rounded-2 shadow">
+      <div class="row no-gutters">
+        <div class="col-12 col-md-6">
+          <mat-form-field style="height: 70px !important;">
+            <mat-label>Start Date</mat-label>
+            <input
+              matInput
+              [ngxMatDatetimePicker]="startpicker"
+              placeholder="Choose a date and time"
+              [(ngModel)]="StartDateTime"
+              [max]="maxDate"
+              (dateChange)="setStart_EndDate('start',$event.value)"
+            />
+            <ngx-mat-datepicker-toggle matSuffix [for]="startpicker"></ngx-mat-datepicker-toggle>
+            <ngx-mat-datetime-picker
+              #startpicker
+              [showSpinners]="true"
+              [showSeconds]="false"
+              [stepHour]="1"
+              [stepMinute]="1"
+              [stepSecond]="1"
+              [touchUi]="false"
+              [enableMeridian]="false"
+              [disableMinute]="false"
+              [hideTime]="false"
+            >
+            </ngx-mat-datetime-picker>
+          </mat-form-field>
+        </div>
+  
+        <div class="col-12 col-md-6">
+          <mat-form-field style="height: 70px !important;">
+            <mat-label>End Date</mat-label>
+            <input
+              matInput
+              [ngxMatDatetimePicker]="endpicker"
+              placeholder="Choose a date and time"
+              [(ngModel)]="EndDateTime"
+              [max]="maxDate"
+              (dateChange)="setStart_EndDate('end',$event.value)"
+            />
+            <ngx-mat-datepicker-toggle matSuffix [for]="endpicker"></ngx-mat-datepicker-toggle>
+            <ngx-mat-datetime-picker
+              #endpicker
+              [showSpinners]="true"
+              [showSeconds]="false"
+              [stepHour]="1"
+              [stepMinute]="1"
+              [stepSecond]="1"
+              [touchUi]="false"
+              [enableMeridian]="false"
+              [disableMinute]="false"
+              [hideTime]="false"
+              color="primary"
+            >
+            </ngx-mat-datetime-picker>
+          </mat-form-field>
+          <div>
+            <span *ngIf="EndDateTime < StartDateTime" style="color: red;">End date should not be less than start date.</span>
+          </div>
+        </div>
+        <hr>
+      </div>
+  
+      <div echarts [options]="Chartoptions" class="chart" *ngIf="Chartoptions != undefined"></div>
+      <div *ngIf="Chartoptions == undefined" class="chart-no-data">No Data Points</div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <app-barchart></app-barchart>
+  </div>
+</div>
+
+<div class="row p-3" style="width: 100%;">
+  <div class="col-md-6">
+      <div class="row no-gutters">
+        <app-multichart></app-multichart>
+      </div>
+  </div>
+</div>
+
+

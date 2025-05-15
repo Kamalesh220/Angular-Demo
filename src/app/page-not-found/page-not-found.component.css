@@ -1,0 +1,14 @@
+.container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  .goToHome{
+    color: blue;
+    cursor: pointer;
+    text-transform: un;
+  }

@@ -1,0 +1,83 @@
+<div class="col-md-12">
+    <h2>Well Information Form 
+      <div class="tooltip-1"><span class="m-1 p-2 icon fas fa-plus" style="font-size: 1.5em; font-weight: bold; color: green;" (click)="onFormReset()">+</span> 
+        <span class="tooltiptext-1">Add New Record</span>
+      </div>
+    </h2>
+    <form [formGroup]="wellForm" (ngSubmit)="onSubmit()" (reset)="onFormReset()" class="well-form">
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="wellName">Well Name:</label>
+          <input type="text" id="wellName" formControlName="wellName" class="form-control">
+          <div *ngIf="wellNameControl?.invalid && (wellNameControl?.dirty || wellNameControl?.touched)" class="error-message">
+              Well Name is required.
+            </div>
+          </div>
+
+          <div class="form-group col-md-6 dropdown-icon-container">
+            <label for="wellType">Well Type:</label>
+            <select id="wellType" formControlName="wellType" class="form-control">
+              <option value="">Select Well Type</option>
+              <option value="Production">Production</option>
+              <option value="Injection">Injection</option>
+              <option value="Exploration">Exploration</option>
+            </select>
+            <div *ngIf="wellTypeControl?.invalid && (wellTypeControl?.dirty || wellTypeControl?.touched)" class="error-message">
+              Well Type is required.
+            </div>
+            <div class="dropdown-icon">
+              <i class="bi bi-caret-down-fill"></i>
+            </div>
+          </div>
+        </div>
+       
+  
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="spudDate">Spud Date:</label>
+          <input type="date" id="spudDate" formControlName="spudDate" class="form-control">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="totalDepth">Total Depth (m):</label>
+          <input type="text" id="totalDepth" formControlName="totalDepth" class="form-control">
+          <div *ngIf="totalDepthControl?.invalid && (totalDepthControl?.dirty || totalDepthControl?.touched)" class="error-message">
+            Total Depth must be a number.
+          </div>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="currentPressure">Current Pressure (psi):</label>
+          <input type="text" id="currentPressure" formControlName="currentPressure" class="form-control">
+          <div *ngIf="currentPressureControl?.invalid && (currentPressureControl?.dirty || currentPressureControl?.touched)" class="error-message">
+            Current Pressure must be a number.
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="productionRate">Production Rate (bbl/day):</label>
+          <input type="text" id="productionRate" formControlName="productionRate" class="form-control">
+          <div *ngIf="productionRateControl?.invalid && (productionRateControl?.dirty || productionRateControl?.touched)" class="error-message">
+            Production Rate must be a number.
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="isOperational">Is Operational:</label>
+        <input type="checkbox" id="isOperational" formControlName="isOperational">
+      </div>
+  
+      <div class="row text-center">
+        <div>
+            <button type="submit" [disabled]="!wellForm.valid" class="btn btn-primary">Submit</button>
+            <button type="reset" [disabled]="!wellForm.valid" class="btn btn-primary m-1">Clear</button>
+            
+          </div>
+        <div>
+        </div>
+      </div>
+    </form>
+   
+  </div>
+  

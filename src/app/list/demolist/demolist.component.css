@@ -1,0 +1,75 @@
+.link{
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.well-table {
+    width: 100%;
+    text-align: center;
+  }
+
+  .mat-column-wellName {
+    flex-grow: 1; 
+  }
+
+  .mat-column-actions {
+    text-align: center;
+  }
+
+  .mat-table-wrapper {
+    overflow-x: auto; /* Optional: If you also want horizontal scrolling */
+  }
+  
+  .mat-table-wrapper table {
+    width: 100%; /* Ensure the table takes full width of its wrapper */
+  }
+  
+  /* Target the tbody indirectly */
+  .mat-table-wrapper .mat-table-scroll-container {
+    max-height: 300px; /* Adjust this value as needed */
+    overflow-y: auto;
+  }
+  
+  /* Optional: Style the scrollbar */
+  .mat-table-wrapper ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .mat-table-wrapper ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .mat-table-wrapper ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  .mat-table-wrapper ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  table {
+    width: 100%;
+  }
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 30%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
+
+  .well-table tr:nth-child(odd) {
+    background-color: #f9f9f9; /* Light grey for odd rows */
+  }
+  
+  .well-table tr:nth-child(even) {
+    background-color: #ffffff; /* White for even rows */
+  }
+  
+  /* Style the header row to prevent it from being colored */
+  .well-table mat-header-row {
+    background-color: inherit !important;
+  }
